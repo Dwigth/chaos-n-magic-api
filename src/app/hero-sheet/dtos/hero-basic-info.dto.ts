@@ -9,6 +9,7 @@ import { AttributeDto } from "app/hero-sheet/dtos/attribute.dto";
 import { DamageStacksDto } from "app/hero-sheet/dtos/damage-stacks.dto";
 import { SenseDto } from "app/hero-sheet/dtos/sense.dto";
 import { Characteristic } from "app/hero-sheet/types/characteristic.type";
+import { HeroSheetDetails } from "app/hero-sheet/types/hero-sheet-details.type";
 
 export class HeroBasicInfoDto {
 
@@ -42,7 +43,7 @@ export class HeroBasicInfoDto {
     @ValidateNested()
     @Type(() => AttributeDto)
     attributes: AttributeDto;
-    
+
     @ApiProperty()
     @ValidateNested()
     @Type(() => DamageStacksDto)
@@ -69,4 +70,14 @@ export class HeroBasicInfoDto {
     })
     @IsArray()
     languages: string[];
+
+    @ApiProperty({
+        example: {
+            height: '160cm',
+            weight: '15kg',
+            backstory: 'This hero was born in...',
+        },
+        description: 'Details of the hero'
+    })
+    details: HeroSheetDetails;
 }
