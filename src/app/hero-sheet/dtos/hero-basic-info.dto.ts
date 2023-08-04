@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { ValidateNested } from "class-validator";
+import { IsArray, ValidateNested } from "class-validator";
 import { Type } from "class-transformer";
 import { SpeedDto } from "app/hero-sheet/dtos/speed.dto";
 import { DefenseDto } from "app/hero-sheet/dtos/defense.dto";
@@ -8,6 +8,7 @@ import { StanceDto } from "app/hero-sheet/dtos/stance.dto";
 import { AttributeDto } from "app/hero-sheet/dtos/attribute.dto";
 import { DamageStacksDto } from "app/hero-sheet/dtos/damage-stacks.dto";
 import { SenseDto } from "app/hero-sheet/dtos/sense.dto";
+import { Characteristic } from "app/hero-sheet/types/characteristic.type";
 
 export class HeroBasicInfoDto {
 
@@ -51,4 +52,16 @@ export class HeroBasicInfoDto {
     @ValidateNested()
     @Type(() => SenseDto)
     senses: SenseDto;
+
+    @ApiProperty({
+        example: [{
+            characteristicName: 'Kissing',
+            characteristicBonus: '+1'
+        }],
+        description: 'Characteristic details'
+    })
+    @IsArray()
+    characteristic: Characteristic[];
+
+    
 }
