@@ -10,6 +10,8 @@ import { DamageStacksDto } from "app/hero-sheet/dtos/damage-stacks.dto";
 import { SenseDto } from "app/hero-sheet/dtos/sense.dto";
 import { Characteristic } from "app/hero-sheet/types/characteristic.type";
 import { HeroSheetDetails } from "app/hero-sheet/types/hero-sheet-details.type";
+import { Talent } from "app/hero-sheet/types/talent.type";
+import { exampleTalents } from "app/hero-sheet/maps/example-talents.maps";
 
 export class HeroBasicInfoDto {
 
@@ -80,4 +82,10 @@ export class HeroBasicInfoDto {
         description: 'Details of the hero'
     })
     details: HeroSheetDetails;
+
+    @ApiProperty({
+        example: [exampleTalents.get('SwaggerExample')]
+    })
+    @IsArray()
+    talents: Talent[];
 }
