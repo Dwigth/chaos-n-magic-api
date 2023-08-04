@@ -5,6 +5,7 @@ import { SpeedDto } from "app/hero-sheet/dtos/speed.dto";
 import { DefenseDto } from "app/hero-sheet/dtos/defense.dto";
 import { EnergyDto } from "app/hero-sheet/dtos/energy.dto";
 import { StanceDto } from "app/hero-sheet/dtos/stance.dto";
+import { AttributeDto } from "app/hero-sheet/dtos/attribute.dto";
 
 export class HeroBasicInfoDto {
 
@@ -33,4 +34,9 @@ export class HeroBasicInfoDto {
     @ValidateNested()
     @Type(() => SpeedDto)
     speed: SpeedDto;
+
+    @ApiProperty()
+    @ValidateNested()
+    @Type(() => AttributeDto)
+    attributes: AttributeDto;
 }
