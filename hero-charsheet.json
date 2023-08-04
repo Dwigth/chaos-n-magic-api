@@ -8,20 +8,20 @@
         "min": 0,
         "value": 0,
         "max": 1,
-        "maxbonus": 0,
+        "maxBonus": 0,
         "bonus": 0
       },
       "stance": {
         "value": 0,
         "min": 0,
         "max": 3,
-        "tempstance": 0
+        "tempStance": 0
       },
       "energy": {
         "value": 0,
         "min": 0,
         "max": 6,
-        "tempenergy": 0
+        "tempEnergy": 0
       },
       "speed": {
         "climbingSpeed": {
@@ -105,9 +105,7 @@
           "characteristicBonus": "+1"
         }
       ],
-      "languages": [
-        ""
-      ],
+      "languages": [""],
       "details": {
         "height": "",
         "weight": "",
@@ -174,22 +172,19 @@
         ]
       },
       "inventory": {
-          "coins": 0,
-          "items": [
-            {
-              "name": "",
-              "weight": 0,
-              "quantity": 1,
-              "equipped": false
-            }
-          ],
-          "carriedWeight": 0
-        }
-      ,
-      "spellbook": {
-        "magicSchools": [
-          ""
+        "coins": 0,
+        "items": [
+          {
+            "name": "",
+            "weight": 0,
+            "quantity": 1,
+            "equipped": false
+          }
         ],
+        "carriedWeight": 0
+      },
+      "spellbook": {
+        "magicSchools": [""],
         "minorMagic": [
           {
             "name": "",
@@ -280,8 +275,6 @@
         ]
       }
     },
-    "notes": [
-      ""
-    ]
+    "notes": [""]
   }
 }
