@@ -7,6 +7,7 @@ import { EnergyDto } from "app/hero-sheet/dtos/energy.dto";
 import { StanceDto } from "app/hero-sheet/dtos/stance.dto";
 import { AttributeDto } from "app/hero-sheet/dtos/attribute.dto";
 import { DamageStacksDto } from "app/hero-sheet/dtos/damage-stacks.dto";
+import { SenseDto } from "app/hero-sheet/dtos/sense.dto";
 
 export class HeroBasicInfoDto {
 
@@ -45,4 +46,9 @@ export class HeroBasicInfoDto {
     @ValidateNested()
     @Type(() => DamageStacksDto)
     damageStacks: DamageStacksDto;
+
+    @ApiProperty()
+    @ValidateNested()
+    @Type(() => SenseDto)
+    senses: SenseDto;
 }
