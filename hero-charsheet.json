@@ -173,19 +173,19 @@
           }
         ]
       },
-      "inventory": [
-        {
+      "inventory": {
           "coins": 0,
           "items": [
             {
               "name": "",
               "weight": 0,
-              "quantity": 1
+              "quantity": 1,
+              "equipped": false
             }
           ],
           "carriedWeight": 0
         }
-      ],
+      ,
       "spellbook": {
         "magicSchools": [
           ""
