@@ -12,6 +12,7 @@ import { Characteristic } from "app/hero-sheet/types/characteristic.type";
 import { HeroSheetDetails } from "app/hero-sheet/types/hero-sheet-details.type";
 import { Talent } from "app/hero-sheet/types/talent.type";
 import { exampleTalents } from "app/hero-sheet/maps/example-talents.maps";
+import { EquipmentDto } from "app/hero-sheet/dtos/equipment.dto";
 
 export class HeroBasicInfoDto {
 
@@ -88,4 +89,9 @@ export class HeroBasicInfoDto {
     })
     @IsArray()
     talents: Talent[];
+
+    @ApiProperty()
+    @ValidateNested()
+    @Type(() => EquipmentDto)
+    equipment: EquipmentDto;
 }
