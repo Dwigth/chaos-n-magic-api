@@ -1,0 +1,26 @@
+{
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "prettier.tabWidth": 4,
+    "editor.tabSize": 4,
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": true,
+    "[typescript]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        },
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "prettier.trailingComma": "all",
+    "cSpell.words": [
+        "dtos",
+        "nestjs",
+        "typeorm"
+    ],
+    "typescript.preferences.importModuleSpecifier": "non-relative",
+    "javascript.preferences.importModuleSpecifier": "non-relative"
+}
