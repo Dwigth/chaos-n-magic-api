@@ -1,0 +1,287 @@
+{
+  "heroSheet": {
+    "sheetId": "",
+    "sheetPasscode": "0000",
+    "heroBasicInfo": {
+      "characterName": "",
+      "defense": {
+        "min": 0,
+        "value": 0,
+        "max": 1,
+        "maxbonus": 0,
+        "bonus": 0
+      },
+      "stance": {
+        "value": 0,
+        "min": 0,
+        "max": 3,
+        "tempstance": 0
+      },
+      "energy": {
+        "value": 0,
+        "min": 0,
+        "max": 6,
+        "tempenergy": 0
+      },
+      "speed": {
+        "climbingSpeed": {
+          "value": 0
+        },
+        "walkingSpeed": {
+          "value": 0
+        },
+        "swimmingSpeed": {
+          "value": 0
+        },
+        "flyingSpeed": {
+          "value": 0
+        },
+        "diggingSpeed": {
+          "value": 0
+        }
+      },
+      "attributes": {
+        "personality": {
+          "value": -3
+        },
+        "combat": {
+          "value": -3
+        },
+        "intellect": {
+          "value": -3
+        },
+        "fortitude": {
+          "value": -3
+        },
+        "agility": {
+          "value": -3
+        },
+        "senses": {
+          "value": -3
+        },
+        "mind": {
+          "value": -3
+        }
+      },
+      "damageStacks": {
+        "bleeding": {
+          "value": 0,
+          "max": 0
+        },
+        "toxic": {
+          "value": 0,
+          "max": 0
+        },
+        "psychic": {
+          "value": 0,
+          "max": 0
+        }
+      },
+      "senses": {
+        "s_Hearing": {
+          "value": 0,
+          "max": 0
+        },
+        "s_Seeing": {
+          "value": 0,
+          "max": 0
+        },
+        "s_NightVision": {
+          "value": 0,
+          "max": 0
+        },
+        "s_Pulse": {
+          "value": 0,
+          "max": 0
+        },
+        "s_Energy": {
+          "value": 0,
+          "max": 0
+        }
+      },
+      "characteristics": [
+        {
+          "characteristicName": "",
+          "characteristicBonus": "+1"
+        }
+      ],
+      "languages": [
+        ""
+      ],
+      "details": {
+        "height": "",
+        "weight": "",
+        "backstory": ""
+      },
+      "talents": [
+        {
+          "name": "",
+          "effect": ""
+        }
+      ],
+      "equipment": {
+        "hat": "",
+        "weapons": [
+          {
+            "weaponName": 0,
+            "hasAttack": {
+              "name": "",
+              "damage": "1dcm",
+              "damageType": "P",
+              "energy": 3
+            }
+          }
+        ],
+        "armor": {
+          "name": "",
+          "effect": ""
+        },
+        "mask": {
+          "name": "",
+          "effect": ""
+        },
+        "cape": {
+          "name": "",
+          "effect": ""
+        },
+        "necklace": {
+          "name": "",
+          "effect": ""
+        },
+        "bracelet": {
+          "name": "",
+          "effect": ""
+        },
+        "ring": [
+          {
+            "name": "",
+            "effect": ""
+          }
+        ],
+        "boots": {
+          "name": "",
+          "effect": ""
+        },
+        "special": {
+          "name": "",
+          "effect": ""
+        },
+        "bags": [
+          {
+            "bagName": "",
+            "equipped": false
+          }
+        ]
+      },
+      "inventory": [
+        {
+          "coins": 0,
+          "items": [
+            {
+              "name": "",
+              "weight": 0,
+              "quantity": 1
+            }
+          ],
+          "carriedWeight": 0
+        }
+      ],
+      "spellbook": {
+        "magicSchools": [
+          ""
+        ],
+        "minorMagic": [
+          {
+            "name": "",
+            "cost": 0,
+            "time": 2,
+            "range": "",
+            "target": "",
+            "duration": "",
+            "channeling": 0,
+            "ad": "1dcm",
+            "damage": "",
+            "description": "",
+            "hasAttack": [
+              {
+                "name": "",
+                "damage": "1dcm",
+                "damageType": "P",
+                "energy": 3
+              }
+            ]
+          }
+        ],
+        "initiateMagic": [
+          {
+            "name": "",
+            "cost": 0,
+            "time": 2,
+            "range": "",
+            "target": "",
+            "duration": "",
+            "channeling": 0,
+            "ad": "1dcm",
+            "damage": "",
+            "description": "",
+            "hasAttack": [
+              {
+                "name": "",
+                "damage": "1dcm",
+                "damageType": "P",
+                "energy": 3
+              }
+            ]
+          }
+        ],
+        "professionalMagic": [
+          {
+            "name": "",
+            "cost": 0,
+            "time": 2,
+            "range": "",
+            "target": "",
+            "duration": "",
+            "channeling": 0,
+            "ad": "1dcm",
+            "damage": "",
+            "description": "",
+            "hasAttack": [
+              {
+                "name": "",
+                "damage": "1dcm",
+                "damageType": "P",
+                "energy": 3
+              }
+            ]
+          }
+        ],
+        "masterMagic": [
+          {
+            "name": "",
+            "cost": 0,
+            "time": 2,
+            "range": "",
+            "target": "",
+            "duration": "",
+            "channeling": 0,
+            "ad": "1dcm",
+            "damage": "",
+            "description": "",
+            "hasAttack": [
+              {
+                "name": "",
+                "damage": "1dcm",
+                "damageType": "P",
+                "energy": 3
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "notes": [
+      ""
+    ]
+  }
+}
