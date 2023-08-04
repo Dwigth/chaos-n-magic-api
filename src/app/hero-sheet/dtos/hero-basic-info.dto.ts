@@ -63,5 +63,10 @@ export class HeroBasicInfoDto {
     @IsArray()
     characteristic: Characteristic[];
 
-    
+    @ApiProperty({
+        example: ['es', 'en'],
+        description: 'Languages for the hero sheet',
+    })
+    @IsArray()
+    languages: string[];
 }
