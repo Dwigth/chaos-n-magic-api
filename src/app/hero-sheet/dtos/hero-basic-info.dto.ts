@@ -13,6 +13,7 @@ import { HeroSheetDetails } from "app/hero-sheet/types/hero-sheet-details.type";
 import { Talent } from "app/hero-sheet/types/talent.type";
 import { exampleTalents } from "app/hero-sheet/maps/example-talents.maps";
 import { EquipmentDto } from "app/hero-sheet/dtos/equipment.dto";
+import { InventoryDto } from "app/hero-sheet/dtos/inventory.dto";
 
 export class HeroBasicInfoDto {
 
@@ -94,4 +95,9 @@ export class HeroBasicInfoDto {
     @ValidateNested()
     @Type(() => EquipmentDto)
     equipment: EquipmentDto;
+
+    @ApiProperty()
+    @ValidateNested()
+    @Type(() => InventoryDto)
+    inventory: InventoryDto;
 }
