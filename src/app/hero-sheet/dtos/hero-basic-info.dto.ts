@@ -1,9 +1,10 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { DefenseDto } from "./defense.dto";
-import { Type } from "class-transformer";
 import { ValidateNested } from "class-validator";
-import { StanceDto } from "./stance.dto";
-import { EnergyDto } from "./energy.dto";
+import { Type } from "class-transformer";
+import { SpeedDto } from "app/hero-sheet/dtos/speed.dto";
+import { DefenseDto } from "app/hero-sheet/dtos/defense.dto";
+import { EnergyDto } from "app/hero-sheet/dtos/energy.dto";
+import { StanceDto } from "app/hero-sheet/dtos/stance.dto";
 
 export class HeroBasicInfoDto {
 
@@ -27,4 +28,9 @@ export class HeroBasicInfoDto {
     @ValidateNested()
     @Type(() => EnergyDto)
     energy: EnergyDto;
+
+    @ApiProperty()
+    @ValidateNested()
+    @Type(() => SpeedDto)
+    speed: SpeedDto;
 }
