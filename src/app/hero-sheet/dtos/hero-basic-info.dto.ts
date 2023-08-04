@@ -6,6 +6,7 @@ import { DefenseDto } from "app/hero-sheet/dtos/defense.dto";
 import { EnergyDto } from "app/hero-sheet/dtos/energy.dto";
 import { StanceDto } from "app/hero-sheet/dtos/stance.dto";
 import { AttributeDto } from "app/hero-sheet/dtos/attribute.dto";
+import { DamageStacksDto } from "app/hero-sheet/dtos/damage-stacks.dto";
 
 export class HeroBasicInfoDto {
 
@@ -39,4 +40,9 @@ export class HeroBasicInfoDto {
     @ValidateNested()
     @Type(() => AttributeDto)
     attributes: AttributeDto;
+    
+    @ApiProperty()
+    @ValidateNested()
+    @Type(() => DamageStacksDto)
+    damageStacks: DamageStacksDto;
 }
