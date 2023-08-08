@@ -4,6 +4,7 @@ import { DamageStacks } from 'app/hero-sheet/schemas/damage-stacks.schema';
 import { Defense } from 'app/hero-sheet/schemas/defense.schema';
 import { Details } from 'app/hero-sheet/schemas/details.schema';
 import { Energy } from 'app/hero-sheet/schemas/energy.schema';
+import { Equipment } from 'app/hero-sheet/schemas/equipment.schema';
 import { Senses } from 'app/hero-sheet/schemas/senses.schema';
 import { Speed } from 'app/hero-sheet/schemas/speed.schema';
 import { Stance } from 'app/hero-sheet/schemas/stance.schema';
@@ -57,6 +58,9 @@ export class HeroBasicInfo {
 
   @Prop([{ type: Talents }])
   talents: TalentType[];
+
+  @Prop({ type: Equipment })
+  equipment: Equipment;
 }
 
 export const HeroBasicInfoSchema = SchemaFactory.createForClass(HeroBasicInfo);

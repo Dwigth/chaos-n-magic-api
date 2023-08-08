@@ -167,7 +167,7 @@
         "bags": [
           {
             "bagName": "",
-            "equipped": false
+            "isEquipped": false
           }
         ]
       },
