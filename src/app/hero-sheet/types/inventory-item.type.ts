@@ -1,6 +1,6 @@
 export type InventoryItem = {
-    name: string;
-    weight: number;
-    quantity: number;
-    equipped: boolean;
-}
+  name: string;
+  weight: number;
+  quantity: number;
+  isEquipped: boolean;
+};

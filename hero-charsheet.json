@@ -178,7 +178,7 @@
             "name": "",
             "weight": 0,
             "quantity": 1,
-            "equipped": false
+            "isEquipped": false
           }
         ],
         "carriedWeight": 0

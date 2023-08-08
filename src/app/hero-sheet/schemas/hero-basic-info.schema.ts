@@ -5,6 +5,7 @@ import { Defense } from 'app/hero-sheet/schemas/defense.schema';
 import { Details } from 'app/hero-sheet/schemas/details.schema';
 import { Energy } from 'app/hero-sheet/schemas/energy.schema';
 import { Equipment } from 'app/hero-sheet/schemas/equipment.schema';
+import { Inventory } from 'app/hero-sheet/schemas/inventory.schema';
 import { Senses } from 'app/hero-sheet/schemas/senses.schema';
 import { Speed } from 'app/hero-sheet/schemas/speed.schema';
 import { Stance } from 'app/hero-sheet/schemas/stance.schema';
@@ -61,6 +62,9 @@ export class HeroBasicInfo {
 
   @Prop({ type: Equipment })
   equipment: Equipment;
+
+  @Prop({ type: Inventory })
+  inventory: Inventory;
 }
 
 export const HeroBasicInfoSchema = SchemaFactory.createForClass(HeroBasicInfo);
