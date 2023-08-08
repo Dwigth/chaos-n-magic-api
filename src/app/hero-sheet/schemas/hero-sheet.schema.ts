@@ -17,6 +17,9 @@ export class HeroSheet {
 
   @Prop([String])
   notes: string[];
+
+  @Prop()
+  isDuplicatedFrom: string;
 }
 
 export const HeroSheetSchema = SchemaFactory.createForClass(HeroSheet);

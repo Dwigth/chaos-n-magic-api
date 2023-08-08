@@ -1,6 +1,7 @@
 import { Body, Controller, Get, Post, Query } from '@nestjs/common';
 import { ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CreateHeroSheetDto } from 'app/hero-sheet/dtos/create-hero-sheet.dto';
+import { DuplicateByIdDto } from 'app/hero-sheet/dtos/duplicate-by-id.dto';
 import { HeroSheetService } from './hero-sheet.service';
 
 @ApiTags('Hero Sheet')
@@ -11,6 +12,11 @@ export class HeroSheetController {
   @Post()
   async create(@Body() createHeroSheetDto: CreateHeroSheetDto) {
     return await this.heroSheetService.create(createHeroSheetDto);
+  }
+
+  @Post('duplicate')
+  async duplicateById(@Body() body: DuplicateByIdDto) {
+    return await this.heroSheetService.duplicateBySheetId(body.heroSheetId);
   }
 
   @ApiQuery({ name: 'hero-sheet-id', example: 'CHAOS-N-MAGIC-rLsPo' })
