@@ -55,7 +55,7 @@ export class HeroBasicInfo {
   @Prop({ type: Details })
   details: DetailsType;
 
-  @Prop({ type: Talents })
+  @Prop([{ type: Talents }])
   talents: TalentType[];
 }
 
