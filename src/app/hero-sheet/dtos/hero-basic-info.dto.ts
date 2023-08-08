@@ -68,7 +68,7 @@ export class HeroBasicInfoDto {
     description: 'Characteristic details',
   })
   @IsArray()
-  characteristic: Characteristic[];
+  characteristics: Characteristic[];
 
   @ApiProperty({
     example: ['es', 'en'],

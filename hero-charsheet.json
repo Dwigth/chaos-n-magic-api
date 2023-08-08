@@ -78,23 +78,23 @@
         }
       },
       "senses": {
-        "s_Hearing": {
+        "hearing": {
           "value": 0,
           "max": 0
         },
-        "s_Seeing": {
+        "seeing": {
           "value": 0,
           "max": 0
         },
-        "s_NightVision": {
+        "nightVision": {
           "value": 0,
           "max": 0
         },
-        "s_Pulse": {
+        "pulse": {
           "value": 0,
           "max": 0
         },
-        "s_Energy": {
+        "energy": {
           "value": 0,
           "max": 0
         }
