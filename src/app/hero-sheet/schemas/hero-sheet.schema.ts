@@ -1,22 +1,22 @@
-import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
-import mongoose, { HydratedDocument } from "mongoose";
-import { HeroBasicInfo } from "app/hero-sheet/schemas/hero-basic-info.schema";
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { HeroBasicInfo } from 'app/hero-sheet/schemas/hero-basic-info.schema';
+import { HydratedDocument } from 'mongoose';
 
 export type HeroSheetDocument = HydratedDocument<HeroSheet>;
 
 @Schema()
 export class HeroSheet {
-    @Prop()
-    sheetId: number;
+  @Prop()
+  sheetId: string;
 
-    @Prop()
-    sheetPasscode: number;
+  @Prop()
+  sheetPasscode: number;
 
-    @Prop({ ref: 'HeroBasicInfo' })
-    heroBasicInfo: HeroBasicInfo;
+  @Prop({ ref: 'HeroBasicInfo' })
+  heroBasicInfo: HeroBasicInfo;
 
-    @Prop([String])
-    notes: string[];
+  @Prop([String])
+  notes: string[];
 }
 
 export const HeroSheetSchema = SchemaFactory.createForClass(HeroSheet);
