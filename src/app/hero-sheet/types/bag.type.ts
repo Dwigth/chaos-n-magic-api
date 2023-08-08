@@ -1,4 +1,4 @@
 export type Bag = {
-    bagName: string,
-    equipped: boolean
-}
+  bagName: string;
+  isEquipped: boolean;
+};
