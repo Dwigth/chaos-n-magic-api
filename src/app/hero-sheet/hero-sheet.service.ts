@@ -1,4 +1,8 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { createSheetId } from 'app/hero-sheet/helper/create-hero-sheet-id.helper';
 import { isNil } from 'lodash';
@@ -16,7 +20,11 @@ export class HeroSheetService {
     // validate if hero-sheet id is already used
     let sheetId = createSheetId();
 
-    const idIsAlreadyInUse = await this.getHeroSheetById(sheetId);
+    const idIsAlreadyInUse = await this.heroSheetModel
+      .findOne({
+        sheetId,
+      })
+      .exec();
     if (!isNil(idIsAlreadyInUse)) {
       sheetId = createSheetId();
     }
@@ -28,13 +36,18 @@ export class HeroSheetService {
 
   async getHeroSheetById(heroSheetId: string) {
     if (isNil(heroSheetId)) {
-      return new BadRequestException('The HeroSheetId is empty');
+      throw new BadRequestException('The HeroSheetId is empty');
     }
 
-    return await this.heroSheetModel
+    const heroSheet = await this.heroSheetModel
       .findOne({
         sheetId: heroSheetId,
       })
       .exec();
+
+    if (isNil(heroSheet)) {
+      throw new NotFoundException('The HeroSheet was not found');
+    }
+    return heroSheet;
   }
 }
