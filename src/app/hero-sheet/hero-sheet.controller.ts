@@ -1,7 +1,16 @@
-import { Body, Controller, Get, Post, Query } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Post,
+  Put,
+  Query,
+  Version,
+} from '@nestjs/common';
 import { ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CreateHeroSheetDto } from 'app/hero-sheet/dtos/create-hero-sheet.dto';
 import { DuplicateByIdDto } from 'app/hero-sheet/dtos/duplicate-by-id.dto';
+import { HeroSheetChangesDto } from 'app/hero-sheet/dtos/hero-sheet-changes.dto';
 import { HeroSheetService } from './hero-sheet.service';
 
 @ApiTags('Hero Sheet')
@@ -27,5 +36,11 @@ export class HeroSheetController {
   @Get()
   async getHeroSheetById(@Query('hero-sheet-id') heroSheetId: string) {
     return await this.heroSheetService.getHeroSheetById(heroSheetId);
+  }
+
+  @Version('1')
+  @Put()
+  async updateHeroSheet(@Body() heroSheetChanges: HeroSheetChangesDto) {
+    return await this.heroSheetService.updateHeroSheet(heroSheetChanges);
   }
 }
