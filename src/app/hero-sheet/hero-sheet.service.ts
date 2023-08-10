@@ -1,11 +1,14 @@
 import {
   BadRequestException,
   Injectable,
+  InternalServerErrorException,
   NotFoundException,
 } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
+import { HeroSheetChangesDto } from 'app/hero-sheet/dtos/hero-sheet-changes.dto';
 import { createSheetId } from 'app/hero-sheet/helper/create-hero-sheet-id.helper';
-import { isNil, omit } from 'lodash';
+import { NonUpdatableProperties } from 'app/hero-sheet/maps/non-updatable-properties.map';
+import { has, isNil, omit, set } from 'lodash';
 import { Model } from 'mongoose';
 import { CreateHeroSheetDto } from './dtos/create-hero-sheet.dto';
 import { HeroSheet } from './schemas/hero-sheet.schema';
@@ -62,5 +65,36 @@ export class HeroSheetService {
     return {
       newHeroSheetId: newSheetId,
     };
+  }
+
+  async updateHeroSheet({
+    heroSheetId,
+    propertyToUpdate,
+    value,
+  }: HeroSheetChangesDto) {
+    const heroSheet = await this.getHeroSheetById(heroSheetId);
+    const heroSheetObject = heroSheet.toObject();
+    const baseProperty = propertyToUpdate[0];
+
+    if (NonUpdatableProperties.includes(baseProperty)) {
+      throw new BadRequestException(`You can't update that property.`);
+    }
+    const objectPath = propertyToUpdate.join('.');
+    const isValidPathToObject = has(heroSheetObject, objectPath);
+    if (!isValidPathToObject) {
+      throw new BadRequestException('The property path is not set correctly.');
+    }
+
+    set(heroSheetObject, objectPath, value);
+
+    try {
+      await this.heroSheetModel
+        .updateOne({ sheetId: heroSheet.sheetId }, heroSheetObject)
+        .exec();
+    } catch (error) {
+      throw new InternalServerErrorException(error);
+    }
+
+    return 'The hero sheet has been updated.';
   }
 }
