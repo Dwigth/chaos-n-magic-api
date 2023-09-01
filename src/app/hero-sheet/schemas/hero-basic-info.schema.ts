@@ -7,6 +7,7 @@ import { Details } from 'app/hero-sheet/schemas/details.schema';
 import { Energy } from 'app/hero-sheet/schemas/energy.schema';
 import { Equipment } from 'app/hero-sheet/schemas/equipment.schema';
 import { Inventory } from 'app/hero-sheet/schemas/inventory.schema';
+import { Power } from 'app/hero-sheet/schemas/power.schema';
 import { Senses } from 'app/hero-sheet/schemas/senses.schema';
 import { Speed } from 'app/hero-sheet/schemas/speed.schema';
 import { Spellbook } from 'app/hero-sheet/schemas/spellbook.schema';
@@ -22,6 +23,15 @@ export type HeroBasicInfoDocument = HydratedDocument<HeroBasicInfo>;
 export class HeroBasicInfo {
   @Prop()
   characterName: string;
+
+  @Prop()
+  specie: string;
+
+  @Prop()
+  profession: string;
+
+  @Prop()
+  diet: string;
 
   @Prop([String])
   notes: string[];
@@ -67,6 +77,9 @@ export class HeroBasicInfo {
 
   @Prop({ type: Spellbook })
   spellbook: Spellbook;
+
+  @Prop({ type: Power })
+  powers: Power;
 }
 
 export const HeroBasicInfoSchema = SchemaFactory.createForClass(HeroBasicInfo);

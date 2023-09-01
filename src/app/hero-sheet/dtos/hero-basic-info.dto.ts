@@ -5,6 +5,7 @@ import { DefenseDto } from 'app/hero-sheet/dtos/defense.dto';
 import { EnergyDto } from 'app/hero-sheet/dtos/energy.dto';
 import { EquipmentDto } from 'app/hero-sheet/dtos/equipment.dto';
 import { InventoryDto } from 'app/hero-sheet/dtos/inventory.dto';
+import { PowerDto } from 'app/hero-sheet/dtos/power.dto';
 import { SenseDto } from 'app/hero-sheet/dtos/sense.dto';
 import { SpeedDto } from 'app/hero-sheet/dtos/speed.dto';
 import { SpellbookDto } from 'app/hero-sheet/dtos/spellbook.dto';
@@ -28,6 +29,24 @@ export class HeroBasicInfoDto {
     description: 'Any note that may came up',
   })
   notes: string[];
+
+  @ApiProperty({
+    example: 'Rabbir',
+    description: 'The character specie',
+  })
+  specie: string;
+
+  @ApiProperty({
+    example: 'Vagabond (Street)',
+    description: 'The character profession',
+  })
+  profession: string;
+
+  @ApiProperty({
+    example: 'herbivorous',
+    description: 'The character diet',
+  })
+  diet: string;
 
   @ApiProperty()
   @ValidateNested()
@@ -113,4 +132,9 @@ export class HeroBasicInfoDto {
   @ValidateNested()
   @Type(() => SpellbookDto)
   spellbook: SpellbookDto;
+
+  @ApiProperty()
+  @ValidateNested()
+  @Type(() => PowerDto)
+  powers: PowerDto;
 }
