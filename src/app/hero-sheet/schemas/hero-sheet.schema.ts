@@ -15,9 +15,6 @@ export class HeroSheet {
   @Prop({ ref: 'HeroBasicInfo' })
   heroBasicInfo: HeroBasicInfo;
 
-  @Prop([String])
-  notes: string[];
-
   @Prop()
   isDuplicatedFrom: string;
 }

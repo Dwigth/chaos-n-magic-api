@@ -1,5 +1,6 @@
-import { Prop, Schema, SchemaFactory, raw } from '@nestjs/mongoose';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Attributes } from 'app/hero-sheet/schemas/attributes.schema';
+import { Characteristic } from 'app/hero-sheet/schemas/characteristic.schema';
 import { DamageStacks } from 'app/hero-sheet/schemas/damage-stacks.schema';
 import { Defense } from 'app/hero-sheet/schemas/defense.schema';
 import { Details } from 'app/hero-sheet/schemas/details.schema';
@@ -11,7 +12,6 @@ import { Speed } from 'app/hero-sheet/schemas/speed.schema';
 import { Spellbook } from 'app/hero-sheet/schemas/spellbook.schema';
 import { Stance } from 'app/hero-sheet/schemas/stance.schema';
 import { Talents } from 'app/hero-sheet/schemas/talents.schema';
-import { Characteristic } from 'app/hero-sheet/types/characteristic.type';
 import { Details as DetailsType } from 'app/hero-sheet/types/details.type';
 import { Talent as TalentType } from 'app/hero-sheet/types/talent.type';
 import { HydratedDocument } from 'mongoose';
@@ -23,7 +23,10 @@ export class HeroBasicInfo {
   @Prop()
   characterName: string;
 
-  @Prop({ type: Defense })
+  @Prop([String])
+  notes: string[];
+
+  @Prop()
   defense: Defense;
 
   @Prop({ type: Stance })
@@ -44,12 +47,7 @@ export class HeroBasicInfo {
   @Prop({ type: Senses })
   senses: Senses;
 
-  @Prop([
-    raw({
-      characteristicName: { type: String },
-      characteristicBonus: { type: String },
-    }),
-  ])
+  @Prop([Characteristic])
   characteristics: Characteristic[];
 
   @Prop([String])

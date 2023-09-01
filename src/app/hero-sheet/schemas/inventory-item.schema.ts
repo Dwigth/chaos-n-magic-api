@@ -1,9 +1,5 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
+import { Prop } from '@nestjs/mongoose';
 
-export type InventoryItemDocument = HydratedDocument<InventoryItem>;
-
-@Schema()
 export class InventoryItem {
   @Prop()
   name: string;
@@ -14,5 +10,3 @@ export class InventoryItem {
   @Prop()
   isEquipped: boolean;
 }
-
-export const InventoryItemSchema = SchemaFactory.createForClass(InventoryItem);

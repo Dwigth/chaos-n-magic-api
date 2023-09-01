@@ -23,6 +23,12 @@ export class HeroBasicInfoDto {
   })
   characterName: string;
 
+  @ApiProperty({
+    example: ['This is my note', 'This is my another note'],
+    description: 'Any note that may came up',
+  })
+  notes: string[];
+
   @ApiProperty()
   @ValidateNested()
   @Type(() => DefenseDto)

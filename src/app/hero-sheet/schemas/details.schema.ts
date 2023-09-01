@@ -1,9 +1,5 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
+import { Prop } from '@nestjs/mongoose';
 
-export type DetailsDocument = HydratedDocument<Details>;
-
-@Schema()
 export class Details {
   @Prop()
   height: string;
@@ -12,5 +8,3 @@ export class Details {
   @Prop()
   backstory: string;
 }
-
-export const DetailsSchema = SchemaFactory.createForClass(Details);

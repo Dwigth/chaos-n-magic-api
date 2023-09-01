@@ -1,10 +1,6 @@
-import { Prop, Schema, SchemaFactory, raw } from '@nestjs/mongoose';
+import { Prop, raw } from '@nestjs/mongoose';
 import { Attribute as AttributeType } from 'app/hero-sheet/types/attribute.type';
-import { HydratedDocument } from 'mongoose';
 
-export type AttributesDocument = HydratedDocument<Attributes>;
-
-@Schema()
 export class Attributes {
   @Prop(
     raw({
@@ -55,5 +51,3 @@ export class Attributes {
   )
   mind: AttributeType;
 }
-
-export const AttributesSchema = SchemaFactory.createForClass(Attributes);

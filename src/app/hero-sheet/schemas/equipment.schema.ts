@@ -1,13 +1,9 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Prop } from '@nestjs/mongoose';
 import { GenericItemSchema } from 'app/commons/schemas/generic-item.schema';
 import { GenericItemType } from 'app/commons/types/generic-item.type';
 import { Bag } from 'app/hero-sheet/schemas/bag.schema';
 import { Weapon } from 'app/hero-sheet/schemas/weapon.schema';
-import { HydratedDocument } from 'mongoose';
 
-export type EquipmentDocument = HydratedDocument<Equipment>;
-
-@Schema()
 export class Equipment {
   @Prop()
   hat: string;
@@ -32,5 +28,3 @@ export class Equipment {
   @Prop([{ type: Bag }])
   bags: Bag[];
 }
-
-export const EquipmentSchema = SchemaFactory.createForClass(Equipment);
