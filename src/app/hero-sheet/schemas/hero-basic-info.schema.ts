@@ -23,6 +23,9 @@ export class HeroBasicInfo {
   @Prop()
   characterName: string;
 
+  @Prop([String])
+  notes: string[];
+
   @Prop({ type: Defense })
   defense: Defense;
 
