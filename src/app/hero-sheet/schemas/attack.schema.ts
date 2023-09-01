@@ -1,9 +1,5 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
+import { Prop } from '@nestjs/mongoose';
 
-export type AttackDocument = HydratedDocument<Attack>;
-
-@Schema()
 export class Attack {
   @Prop()
   name: string;
@@ -14,5 +10,3 @@ export class Attack {
   @Prop()
   energy: number;
 }
-
-export const AttackSchema = SchemaFactory.createForClass(Attack);

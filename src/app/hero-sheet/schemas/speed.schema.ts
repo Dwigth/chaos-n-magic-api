@@ -1,10 +1,9 @@
-import { Prop, Schema, SchemaFactory, raw } from '@nestjs/mongoose';
+import { Prop, SchemaFactory, raw } from '@nestjs/mongoose';
 import { Speed as SpeedType } from 'app/hero-sheet/types/speed.type';
 import { HydratedDocument } from 'mongoose';
 
 export type SpeedDocument = HydratedDocument<Speed>;
 
-@Schema()
 export class Speed {
   @Prop(
     raw({
