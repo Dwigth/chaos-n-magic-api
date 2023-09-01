@@ -29,6 +29,24 @@ export class HeroBasicInfoDto {
   })
   notes: string[];
 
+  @ApiProperty({
+    example: 'Rabbir',
+    description: 'The character specie',
+  })
+  specie: string;
+
+  @ApiProperty({
+    example: 'Vagabond (Street)',
+    description: 'The character profession',
+  })
+  profession: string;
+
+  @ApiProperty({
+    example: 'herbivorous',
+    description: 'The character diet',
+  })
+  diet: string;
+
   @ApiProperty()
   @ValidateNested()
   @Type(() => DefenseDto)

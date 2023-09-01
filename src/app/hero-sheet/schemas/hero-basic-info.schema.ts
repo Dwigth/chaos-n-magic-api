@@ -23,6 +23,15 @@ export class HeroBasicInfo {
   @Prop()
   characterName: string;
 
+  @Prop()
+  specie: string;
+
+  @Prop()
+  profession: string;
+
+  @Prop()
+  diet: string;
+
   @Prop([String])
   notes: string[];
 
