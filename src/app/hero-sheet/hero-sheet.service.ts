@@ -5,10 +5,10 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
+import { HeroBasePath } from 'app/hero-sheet/constants/hero-base-path.const';
 import { HeroSheetChangesDto } from 'app/hero-sheet/dtos/hero-sheet-changes.dto';
 import { UpdateHeroSheetErrors } from 'app/hero-sheet/enums/update-hero-sheet-errors.enum';
 import { createSheetId } from 'app/hero-sheet/helper/create-hero-sheet-id.helper';
-import { NonUpdatableProperties } from 'app/hero-sheet/maps/non-updatable-properties.map';
 import { isNil, omit, set } from 'lodash';
 import { Model } from 'mongoose';
 import { CreateHeroSheetDto } from './dtos/create-hero-sheet.dto';
@@ -86,26 +86,25 @@ export class HeroSheetService {
     propertyToUpdate,
     value,
   }: HeroSheetChangesDto) {
-    const heroSheet = await this.getHeroSheetById(heroSheetId);
-    const heroSheetObject = heroSheet.toObject();
-    const baseProperty = propertyToUpdate[0];
-
-    if (
-      NonUpdatableProperties.includes(baseProperty) &&
-      propertyToUpdate.length === 1
-    ) {
-      throw new BadRequestException(UpdateHeroSheetErrors.BasePropertyError);
-    }
-    const objectPath = propertyToUpdate.join('.');
-
-    set(heroSheetObject, objectPath, value);
-
     try {
+      const heroSheet = await this.getHeroSheetById(heroSheetId);
+      const heroSheetObject = heroSheet.toObject();
+
+      if (propertyToUpdate.length === 0) {
+        throw new Error(UpdateHeroSheetErrors.InvalidPropertyPath);
+      }
+
+      const propertyWithBasePath = [HeroBasePath, ...propertyToUpdate];
+
+      const objectPath = propertyWithBasePath.join('.');
+
+      set(heroSheetObject, objectPath, value);
+
       await this.heroSheetModel
         .updateOne({ sheetId: heroSheet.sheetId }, heroSheetObject)
         .exec();
     } catch (error) {
-      throw new InternalServerErrorException(error);
+      throw new InternalServerErrorException(error.message);
     }
 
     return 'The hero sheet has been updated.';

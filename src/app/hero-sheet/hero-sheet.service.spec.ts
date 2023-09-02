@@ -2,7 +2,6 @@ import { HeroSheetData } from 'app/hero-sheet/data/hero-sheet.data';
 import { HeroSheetChangesDto } from 'app/hero-sheet/dtos/hero-sheet-changes.dto';
 import { UpdateHeroSheetErrors } from 'app/hero-sheet/enums/update-hero-sheet-errors.enum';
 import { HeroSheetService } from 'app/hero-sheet/hero-sheet.service';
-import { NonUpdatableProperties } from 'app/hero-sheet/maps/non-updatable-properties.map';
 import { HeroSheet } from 'app/hero-sheet/schemas/hero-sheet.schema';
 import { Model } from 'mongoose';
 
@@ -32,15 +31,9 @@ describe('Hero Sheet Service', () => {
     const testThatShouldFail: HeroSheetUpdateShouldFailCase[] = [
       {
         a: {
-          propertyToUpdate: [NonUpdatableProperties[0]],
+          propertyToUpdate: [],
         },
-        b: UpdateHeroSheetErrors.BasePropertyError,
-      },
-      {
-        a: {
-          propertyToUpdate: [NonUpdatableProperties[1]],
-        },
-        b: UpdateHeroSheetErrors.BasePropertyError,
+        b: UpdateHeroSheetErrors.InvalidPropertyPath,
       },
     ];
 

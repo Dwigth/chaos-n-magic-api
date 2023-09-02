@@ -8,10 +8,11 @@ export class HeroSheetChangesDto {
   heroSheetId: string;
 
   @ApiProperty({
+    example: ['characteristics', '1'],
     examples: [
-      ['heroBasicInfo', 'characterName'],
-      ['heroBasicInfo', 'characteristics[0]', 'characteristicName'],
-      ['heroBasicInfo', 'characteristics', '0', 'characteristicName'],
+      ['characterName'],
+      ['characteristics[0]', 'characteristicName'],
+      ['characteristics', '0', 'characteristicName'],
     ],
     description: 'Array of strings with the path of property to update',
   })
@@ -19,6 +20,10 @@ export class HeroSheetChangesDto {
   propertyToUpdate: string[];
 
   @ApiProperty({
+    example: {
+      characteristicName: 'Gambler',
+      characteristicBonus: '+2',
+    },
     description: 'The value of the property to update',
   })
   value: string | number | Object;
