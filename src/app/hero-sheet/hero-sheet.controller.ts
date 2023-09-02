@@ -29,13 +29,20 @@ export class HeroSheetController {
   }
 
   @ApiQuery({ name: 'hero-sheet-id', example: 'CHAOS-N-MAGIC-rLsPo' })
+  @ApiQuery({ name: 'sheet-passcode', example: '10258' })
   @ApiResponse({
     status: 404,
     description: 'The HeroSheet was not found',
   })
   @Get()
-  async getHeroSheetById(@Query('hero-sheet-id') heroSheetId: string) {
-    return await this.heroSheetService.getHeroSheetById(heroSheetId);
+  async getHeroSheetById(
+    @Query('hero-sheet-id') heroSheetId: string,
+    @Query('sheet-passcode') sheetPasscode: number,
+  ) {
+    return await this.heroSheetService.getHeroAndVerifyPasscode(
+      heroSheetId,
+      sheetPasscode,
+    );
   }
 
   @Version('1')
