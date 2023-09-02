@@ -55,6 +55,19 @@ export class HeroSheetService {
     return heroSheet;
   }
 
+  async getHeroAndVerifyPasscode(heroSheetId: string, sheetPasscode: number) {
+    try {
+      const heroSheet = await this.getHeroSheetById(heroSheetId);
+      if (Number(heroSheet.sheetPasscode) !== Number(sheetPasscode)) {
+        throw new Error('The sheet passcode is incorrect');
+      }
+
+      return heroSheet;
+    } catch (error) {
+      throw new InternalServerErrorException(error.message);
+    }
+  }
+
   async duplicateBySheetId(heroSheetId: string) {
     const heroSheet = await this.getHeroSheetById(heroSheetId);
     const newSheetId = createSheetId();
