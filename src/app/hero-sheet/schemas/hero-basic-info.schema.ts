@@ -1,4 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Action } from 'app/hero-sheet/schemas/action.schema';
 import { Attributes } from 'app/hero-sheet/schemas/attributes.schema';
 import { Characteristic } from 'app/hero-sheet/schemas/characteristic.schema';
 import { DamageStacks } from 'app/hero-sheet/schemas/damage-stacks.schema';
@@ -33,8 +34,32 @@ export class HeroBasicInfo {
   @Prop()
   diet: string;
 
+  @Prop()
+  characterLevel: string;
+
+  @Prop()
+  description: string;
+
+  @Prop()
+  appearance: string;
+
+  @Prop()
+  characteristic: string;
+
+  @Prop()
+  milestones: { [milestoneName: string]: boolean }[];
+
+  @Prop()
+  characterKnownLanguages: string;
+
   @Prop([String])
   notes: string[];
+
+  @Prop([Action])
+  actions: Action[];
+
+  @Prop()
+  characteristicsText: string;
 
   @Prop()
   defense: Defense;

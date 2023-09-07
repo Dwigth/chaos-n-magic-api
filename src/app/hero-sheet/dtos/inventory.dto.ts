@@ -15,6 +15,8 @@ export class InventoryDto {
         weight: 2,
         quantity: 1,
         isEquipped: false,
+        showDescription: true,
+        description: 'The poison is black...',
       },
     ],
     description: 'Collection of items',

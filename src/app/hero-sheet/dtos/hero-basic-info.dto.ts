@@ -11,7 +11,8 @@ import { SpeedDto } from 'app/hero-sheet/dtos/speed.dto';
 import { SpellbookDto } from 'app/hero-sheet/dtos/spellbook.dto';
 import { StanceDto } from 'app/hero-sheet/dtos/stance.dto';
 import { exampleTalents } from 'app/hero-sheet/maps/example-talents.maps';
-import { Characteristic } from 'app/hero-sheet/types/characteristic.type';
+import { Action } from 'app/hero-sheet/schemas/action.schema';
+import { Characteristic } from 'app/hero-sheet/schemas/characteristic.schema';
 import { HeroSheetDetails } from 'app/hero-sheet/types/hero-sheet-details.type';
 import { Talent } from 'app/hero-sheet/types/talent.type';
 import { Type } from 'class-transformer';
@@ -47,6 +48,43 @@ export class HeroBasicInfoDto {
     description: 'The character diet',
   })
   diet: string;
+
+  @ApiProperty({
+    example: '1',
+    description: 'The character level',
+  })
+  characterLevel: string;
+
+  @ApiProperty({
+    example: 'This is my character...',
+    description: 'The character description',
+  })
+  description: string;
+
+  @ApiProperty({
+    example: 'This is my appearance...',
+    description: 'The character appearance',
+  })
+  appearance: string;
+
+  @ApiProperty({
+    example: 'This is my appearance...',
+    description: 'The character appearance',
+  })
+  characteristic: string;
+
+  @ApiProperty({
+    example: [{ exampleMilestone: false }],
+    description: 'The character description',
+  })
+  @IsArray()
+  milestones: { [milestoneName: string]: boolean }[];
+
+  @ApiProperty({
+    example: 'Ominés, Kroko',
+    description: 'The character known languages',
+  })
+  characterKnownLanguages: string;
 
   @ApiProperty()
   @ValidateNested()
@@ -94,6 +132,26 @@ export class HeroBasicInfoDto {
   })
   @IsArray()
   characteristics: Characteristic[];
+
+  @ApiProperty({
+    example: [
+      {
+        name: 'Punch',
+        formula: '4dcm',
+        damageType: 'Fire',
+        energyCost: '1P',
+      },
+    ],
+    description: 'Character actions',
+  })
+  @IsArray()
+  actions: Action[];
+
+  @ApiProperty({
+    example: 'Fast(+1), Smart(+1)',
+    description: 'The character characteristics in a form of a text',
+  })
+  characteristicsText: string;
 
   @ApiProperty({
     example: ['es', 'en'],
