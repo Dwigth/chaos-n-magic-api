@@ -3,4 +3,6 @@ export type InventoryItem = {
   weight: number;
   quantity: number;
   isEquipped: boolean;
+  showDescription: boolean;
+  description: string;
 };
