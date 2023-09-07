@@ -9,6 +9,7 @@ import { HeroBasePath } from 'app/hero-sheet/constants/hero-base-path.const';
 import { HeroSheetChangesDto } from 'app/hero-sheet/dtos/hero-sheet-changes.dto';
 import { UpdateHeroSheetErrors } from 'app/hero-sheet/enums/update-hero-sheet-errors.enum';
 import { createSheetId } from 'app/hero-sheet/helper/create-hero-sheet-id.helper';
+import { createPasscodeString } from 'app/hero-sheet/helper/create-passcode.helper';
 import { isNil, omit, set } from 'lodash';
 import { Model } from 'mongoose';
 import { CreateHeroSheetDto } from './dtos/create-hero-sheet.dto';
@@ -32,9 +33,14 @@ export class HeroSheetService {
     if (!isNil(idIsAlreadyInUse)) {
       sheetId = createSheetId();
     }
+    const sheetPasscode = Number(createPasscodeString());
+    const heroSheet: HeroSheet = {
+      ...createHeroSheetDto,
+      sheetPasscode,
+      sheetId,
+    };
 
-    createHeroSheetDto.sheetId = sheetId;
-    const createdHeroSheet = new this.heroSheetModel(createHeroSheetDto);
+    const createdHeroSheet = new this.heroSheetModel(heroSheet);
     return createdHeroSheet.save();
   }
 
@@ -74,6 +80,7 @@ export class HeroSheetService {
     const newObject = omit(heroSheet.toObject(), '_id');
     newObject.sheetId = newSheetId;
     newObject.isDuplicatedFrom = heroSheetId;
+    newObject.sheetPasscode = Number(createPasscodeString());
     const duplicatedObject = new this.heroSheetModel(newObject);
     await duplicatedObject.save();
     return {

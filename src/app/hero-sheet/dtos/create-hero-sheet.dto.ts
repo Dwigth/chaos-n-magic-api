@@ -11,13 +11,6 @@ export class CreateHeroSheetDto {
   sheetId: string;
 
   @ApiProperty({
-    example: '010258',
-    description: 'Passcode to access the Hero Sheet',
-    type: Number,
-  })
-  sheetPasscode: number;
-
-  @ApiProperty({
     description: 'Hero information',
   })
   @ValidateNested()
