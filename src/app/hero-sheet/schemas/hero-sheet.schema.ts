@@ -16,7 +16,7 @@ export class HeroSheet {
   heroBasicInfo: HeroBasicInfo;
 
   @Prop()
-  isDuplicatedFrom: string;
+  isDuplicatedFrom?: string;
 }
 
 export const HeroSheetSchema = SchemaFactory.createForClass(HeroSheet);
