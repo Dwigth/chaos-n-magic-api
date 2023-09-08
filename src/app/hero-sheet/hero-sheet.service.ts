@@ -85,6 +85,7 @@ export class HeroSheetService {
     await duplicatedObject.save();
     return {
       newHeroSheetId: newSheetId,
+      sheetPasscode: newObject.sheetPasscode
     };
   }
 
